@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataForm } from '../../model/data-form';
 import { AuthService } from '../../services/auth.service';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
+
 @Component({
   selector: 'app-forms',
   templateUrl: './forms.component.html',
@@ -18,17 +20,42 @@ export class FormsComponent implements OnInit {
     email: '', 
     password:''
   }
+  
+  private userDoc={
+    namedoc: '',
+    document: '', 
+    place: '', 
+    date: '', 
+    }
+    private userInfo={
+      Address: '',
+      Country: '', 
+      City: '', 
+      CountryCode: '',
+      Phone:'',
+      CellPhone:'',
+      EmergencyName:'',
+      EmergencyPhone:'', 
+      }
+
+  public isError= false;
   ngOnInit() {
   }
 
-  onRegister(){
-    console.log('datos',this.userApp)
-    this.authService.registerUserApp(this.userApp).subscribe((user: any)=>{
-      this.authService.setUser(user);
-      this.authService.setToken(user.id)
-      console.log('token',user.id)
-    })
+  onRegister(form: NgForm ){
+    if(form.valid){
+      this.authService.registerUserApp(this.userApp).subscribe((user: any)=>{
+        this.authService.setUser(user);
+        this.authService.setToken(user.id)
+        console.log('token',user.id)
+      })
+    } else this.onIsError();
+   }
 
-  }
-
+  onIsError(): void {
+     this.isError = true;
+     setTimeout(() => {
+       this.isError = false;
+     }, 4000);
+   }
 }

@@ -2,14 +2,17 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Sign In</h3>
+					<h1 class="h3 mb-3 font-weight-normal" *ngIf="!isError">Login</h1>
+					<div class="alert alert-danger" role="alert" *ngIf="isError">
+					  Something is wrong!
+					</div>
 		
 			</div>
 			<div class="card-body">
-				<form #formLogin="ngForm" (ngSubmit)="onLogin()">
+				<form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
 					<div class="input-group form-group">
 						<input type="email" class="form-control" name="email"
-						[(ngModel)]="userApp.email" placeholder="username">
+						[(ngModel)]="userApp.email" placeholder="email">
 					</div>
 					<div class="input-group form-group">
 						<input type="password" class="form-control" name="password"
