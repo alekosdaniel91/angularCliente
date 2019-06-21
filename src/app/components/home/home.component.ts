@@ -7,14 +7,11 @@ import { DataApiService } from '../../services/data-api.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  public users: any
   constructor(private dataApi: DataApiService) { }
 
   ngOnInit() {
-    this.getListUser();
   }
 
-  getListUser(){
-    return this.dataApi.getAllUsers().subscribe(data=>console.log(data));
-  }
+ 
 }

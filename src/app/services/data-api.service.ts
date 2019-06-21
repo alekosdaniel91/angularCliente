@@ -10,7 +10,7 @@ export class DataApiService {
   constructor( public http: HttpClient) { }
 
   getAllUsers(){
-    const url= "http://localhost:3000/api/ContactInfo_TBs?access_token=KAu3zrBk69FyxdwneYMkwH4GKsjujIJFAVrfOXceJDyztXwgqoTjWSJKH6qxRADm";
+    const url= "http://localhost:3000/api/UsersApp";
     return this.http.get(url);
   }
 
