@@ -72,7 +72,7 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label>Type of Document</label>
-          <input type="text" class="form-control" #namedoc="ngModel" name="namedoc" [(ngModel)]="userDoc.namedoc"
+          <input type="text" class="form-control" #namedoc="ngModel" name="namedoc" [(ngModel)]="userApp.userDoc.namedoc"
             placeholder="NameType" maxlength="50" required>
         </div>
         <div class="alert alert-danger" role="alert" *ngIf="namedoc.touched && !password.valid">
@@ -81,7 +81,7 @@
         </div>
         <div class="form-group col-md-6">
           <label>Document</label>
-          <input type="text" class="form-control" #Document="ngModel" name="document" [(ngModel)]="userDoc.document"
+          <input type="text" class="form-control" #Document="ngModel" name="document" [(ngModel)]="userApp.userDoc.document"
             placeholder="Document" maxlength="20">
         </div>
         <div class="alert alert-danger" role="alert" *ngIf="Document.touched && !Document.valid">
@@ -92,12 +92,12 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label>Place expedition</label>
-          <input type="text" class="form-control" #PlaceExpedition="ngModel" name="PlaceExpedition" [(ngModel)]="userDoc.place"
+          <input type="text" class="form-control" #PlaceExpedition="ngModel" name="PlaceExpedition" [(ngModel)]="userApp.userDoc.place"
             placeholder="Place Expedition" maxlength="60">
         </div>
         <div class="form-group col-md-6">
           <label>Date expedition</label>
-          <input type="date" class="form-control" #DateExpedition="ngModel" name="PlaceExpedition" [(ngModel)]="userDoc.date"
+          <input type="date" class="form-control" #DateExpedition="ngModel" name="PlaceExpedition" [(ngModel)]="userApp.userDoc.date"
             placeholder="Date Expedition">
         </div>
       </div>
@@ -107,45 +107,45 @@
   <h1>Contact Info</h1>
     <div class="form-group">
       <label>Address</label>
-      <input type="text" class="form-control" #inputAddress="ngModel" name="Address" [(ngModel)]="userInfo.Address"
+      <input type="text" class="form-control" #inputAddress="ngModel" name="Address" [(ngModel)]="userApp.userInfo.Address"
         placeholder="Address" maxlength="60">
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label>Country</label>
-        <input type="text" class="form-control" #Country="ngModel" name="Country" [(ngModel)]="userInfo.Country"
+        <input type="text" class="form-control" #Country="ngModel" name="Country" [(ngModel)]="userApp.userInfo.Country"
           maxlength="100">
       </div>
       <div class="form-group col-md-6">
         <label>City</label>
-        <input type="text" class="form-control" #City="ngModel" name="City" [(ngModel)]="userInfo.City" maxlength="50">
+        <input type="text" class="form-control" #City="ngModel" name="City" [(ngModel)]="userApp.userInfo.City" maxlength="50">
       </div>
       <div class="form-group col-md-2">
         <label>Country Code</label>
-        <input type="text" class="form-control" #CountryCode="ngModel" name="CountryCode" [(ngModel)]="userInfo.CountryCode"
+        <input type="text" class="form-control" #CountryCode="ngModel" name="CountryCode" [(ngModel)]="userApp.userInfo.CountryCode"
           maxlength="4">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label>Phone</label>
-        <input type="tel" class="form-control" #Phone="ngModel" name="Phone" [(ngModel)]="userInfo.Phone">
+        <input type="tel" class="form-control" #Phone="ngModel" name="Phone" [(ngModel)]="userApp.userInfo.Phone">
       </div>
       <div class="form-group col-md-6">
         <label>CellPhone</label>
-        <input type="tel" class="form-control" #CellPhone="ngModel" name="CellPhone" [(ngModel)]="userInfo.CellPhone">
+        <input type="tel" class="form-control" #CellPhone="ngModel" name="CellPhone" [(ngModel)]="userApp.userInfo.CellPhone">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label>Emergency Name</label>
-        <input type="text" class="form-control" #EmergencyName="ngModel" name="EmergencyName" [(ngModel)]="userInfo.EmergencyName"
+        <input type="text" class="form-control" #EmergencyName="ngModel" name="EmergencyName" [(ngModel)]="userApp.userInfo.EmergencyName"
           maxlength="100">
       </div>
       <div class="form-group col-md-6">
 
         <label>Emergency Phone</label>
-        <input type="tel" class="form-control" #EmergencyPhone="ngModel" name="EmergencyPhone" [(ngModel)]="userInfo.EmergencyPhone"
+        <input type="tel" class="form-control" #EmergencyPhone="ngModel" name="EmergencyPhone" [(ngModel)]="userApp.userInfo.EmergencyPhone"
           maxlength="20">
       </div>
     </div>

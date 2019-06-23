@@ -17,8 +17,13 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.getListUser();
   }
+  
   getListUser(){
+    console.log('location', location.pathname)
     return this.dataApi.getAllUsers().subscribe(
-      data=>this.users=data);
+      data=>{
+        this.users=data;
+        console.log(data)
+      });
   }
 }

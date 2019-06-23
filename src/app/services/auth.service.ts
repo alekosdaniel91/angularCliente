@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { isNullOrUndefined } from 'util';
-import { DataForm } from '../model/data-form';
+import { UserData } from '../model/data-form';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,8 +13,8 @@ export class AuthService {
   header: HttpHeaders = new HttpHeaders({
     "Content-Type":"aplication/json"
   });
-  registerUserApp(dat: DataForm){
-    const urlApi= 'http://localhost:3000/api/UsersApp';
+  registerUserApp(dat: UserData){
+    const urlApi= 'http://localhost:3000/api/AppUsers';
     return this.http.post(urlApi,{
       Name: dat.Name,
     LastName: dat.LastName,
@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   loginUser(email: string, password: string){
-    const urlApi= 'http://localhost:3000/api/UsersApp/login?include=user';
+    const urlApi= 'http://localhost:3000/api/AppUsers/login/?include=user';
     return this.http.post(urlApi,{
       email:email,
       password:password
@@ -36,7 +36,7 @@ export class AuthService {
     .pipe(map(data=>data))
   }
 
-  setUser(user: DataForm): void {
+  setUser(user: UserData): void {
     let user_string = JSON.stringify(user);
     localStorage.setItem("currentUser", user_string);
   }
@@ -49,10 +49,10 @@ export class AuthService {
     return localStorage.getItem("accessToken");
   }
 
-  getCurrentUser(): DataForm {
+  getCurrentUser(): UserData {
     let user_string = localStorage.getItem("currentUser");
     if (!isNullOrUndefined(user_string)) {
-      let user: DataForm = JSON.parse(user_string);
+      let user: UserData = JSON.parse(user_string);
       return user;
     } else {
       return null;
@@ -64,6 +64,6 @@ export class AuthService {
     const url_api = `http://localhost:3000/api/Users/logout?access_token=${accessToken}`;
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");
-    return this.http.post<DataForm>(url_api, { headers: this.header });
+    return this.http.post<UserData>(url_api, { headers: this.header });
   }
 }

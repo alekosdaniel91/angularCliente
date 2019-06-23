@@ -10,7 +10,7 @@ export class DataApiService {
   constructor( public http: HttpClient) { }
 
   getAllUsers(){
-    const url= "http://localhost:3000/api/UsersApp";
+    const url= "http://localhost:3000/api/AppUsers";
     return this.http.get(url);
   }
 
