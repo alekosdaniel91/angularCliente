@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-users',
@@ -8,7 +9,7 @@ import { DataApiService } from '../../services/data-api.service';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private dataApi: DataApiService) { }
+  constructor(private dataApi: DataApiService, private auth:AuthService) { }
   private users: any
   public displayedColumns: string[] = ['Name','LastName','IsMilitar','TimeCreate','isTemporal','username','email','id'];
 
@@ -19,8 +20,8 @@ export class UsersComponent implements OnInit {
   }
   
   getListUser(){
-    console.log('location', location.pathname)
-    return this.dataApi.getAllUsers().subscribe(
+    let token=this.auth.getToken()
+    return this.dataApi.getAllUsers(token).subscribe(
       data=>{
         this.users=data;
         console.log(data)

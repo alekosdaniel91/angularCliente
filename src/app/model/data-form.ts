@@ -11,7 +11,7 @@ export interface DataForm {
     },
 
     userDoc: {
-        namedoc: string;
+        typeDoc: string;
         document: string;
         place: string;
         date: string;

@@ -32,7 +32,10 @@ export class LoginComponent implements OnInit {
         this.authService.setToken(user.id)
         this.router.navigate(['/home']);
         this.isError = false;
-      },error=>this.onIsError());
+      },error=>{
+        this.onIsError()
+        console.log('error',error)
+      });
     } else this.onIsError();
     
   }
